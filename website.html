@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Score Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+        <a href="#" onclick="showPage('score-generator')">Score Generator</a>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page active home-container">
+        <!-- Text Section -->
+        <div class="home-text">
+            <h1>Sustainable Web Design</h1>
+            <p>
+                The Internet generates 1.6 billion annual tons in greenhouse gas emissions. A Green Score measures how environmentally friendly a business is based on energy usage, waste management, and sustainable practices.
+            </p>
+            <button class="cta-button">TAKE ACTION</button>
+        </div>
+        
+        <!-- Image Section -->
+        <div class="home-image">
+            <img src="assets//318.jpg" alt="Sustainability Image">
+        </div>
+        
+    </section>
+
+    <!-- Dashboard Page -->
+    <section id="dashboard" class="page">
+        <h1>Previous Green Scores</h1>
+        <ul id="score-list">
+            <!-- The list will be dynamically updated with previous scores -->
+        </ul>
+    </section>
+
+    <!-- Score Generator Page -->
+    <section id="score-generator" class="page">
+        <h1>Generate Green Score</h1>
+        <form id="scoreForm">
+            <label for="energyEfficient">Energy Efficiency:</label>
+            <input type="number" id="energyEfficient" name="energyEfficient" required><br>
+
+            <label for="wasteManagement">Waste Management:</label>
+            <input type="number" id="wasteManagement" name="wasteManagement" required><br>
+
+            <label for="sustainableMaterials">Sustainable Materials:</label>
+            <input type="number" id="sustainableMaterials" name="sustainableMaterials" required><br>
+
+            <button type="submit">Generate Green Score</button>
+        </form>
+        <p id="generatedScore"></p>
+    </section>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
