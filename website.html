@@ -5,58 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Score Website</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#" onclick="showPage('home')">Home</a>
-        <a href="#" onclick="showPage('dashboard')">Dashboard</a>
-        <a href="#" onclick="showPage('score-generator')">Score Generator</a>
-    </nav>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="https://picsum.photos/id/237/200/300" alt="Green Score Logo">
+        </div>
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+            <a href="#" onclick="showPage('score-generator')">Score Generator</a>
+        </nav>
+        <div class="user-profile">
+            <img src="https://picsum.photos/id/237/200/300" alt="User Avatar" id="userAvatar">
+            <a href="#" id="loginBtn">Login</a>
+        </div>
+    </header>
 
     <!-- Home Page -->
-    <section id="home" class="page active home-container">
-        <!-- Text Section -->
-        <div class="home-text">
-            <h1>Sustainable Web Design</h1>
-            <p>
-                The Internet generates 1.6 billion annual tons in greenhouse gas emissions. A Green Score measures how environmentally friendly a business is based on energy usage, waste management, and sustainable practices.
-            </p>
-            <button class="cta-button">TAKE ACTION</button>
+    <section id="home" class="page active">
+        <div class="home-container">
+            <div class="home-text">
+                <h1>Sustainable Web Design</h1>
+                <p>
+                    The Internet generates 1.6 billion annual tons in greenhouse gas emissions. A Green Score measures how environmentally friendly a business is based on energy usage, waste management, and sustainable practices.
+                </p>
+                <button class="cta-button" onclick="showPage('score-generator')">TAKE ACTION</button>
+            </div>
+            <div class="home-image">
+                <img src="assets\home_page_image.png" alt="Sustainability Image">
+            </div>
         </div>
-        
-        <!-- Image Section -->
-        <div class="home-image">
-            <img src="assets//318.jpg" alt="Sustainability Image">
-        </div>
-        
     </section>
 
     <!-- Dashboard Page -->
     <section id="dashboard" class="page">
-        <h1>Previous Green Scores</h1>
-        <ul id="score-list">
-            <!-- The list will be dynamically updated with previous scores -->
-        </ul>
+        <div class="dashboard-container">
+            <h1>User Dashboard</h1>
+            
+            <!-- User Info Section -->
+            <div class="user-info">
+                <img src="https://picsum.photos/id/237/200/300" alt="User Avatar" class="user-avatar">
+                <div class="user-details">
+                    <h2 id="username">John Doe</h2>
+                    <p id="business">Green Tech Solutions</p>
+                </div>
+            </div>
+
+            <!-- Current Score Gauge -->
+            <div class="score-gauge">
+                <h2>Current Green Score</h2>
+                <canvas id="scoreGauge"></canvas>
+            </div>
+
+            <!-- Previous Green Scores List -->
+            <div class="scores-container">
+                <h2>Previous Green Scores</h2>
+                <ul id="score-list">
+                    <!-- The list will be dynamically updated with previous scores -->
+                </ul>
+            </div>
+        </div>
     </section>
 
     <!-- Score Generator Page -->
     <section id="score-generator" class="page">
         <h1>Generate Green Score</h1>
         <form id="scoreForm">
-            <label for="energyEfficient">Energy Efficiency:</label>
-            <input type="number" id="energyEfficient" name="energyEfficient" required><br>
+            <label for="vehicles">Number of Vehicles:</label>
+            <input type="number" id="vehicles" name="vehicles" min="0" step="0.01" required><br>
 
-            <label for="wasteManagement">Waste Management:</label>
-            <input type="number" id="wasteManagement" name="wasteManagement" required><br>
+            <label for="power">Power Consumption (kWh):</label>
+            <input type="number" id="power" name="power" min="0" step="0.01" required><br>
 
-            <label for="sustainableMaterials">Sustainable Materials:</label>
-            <input type="number" id="sustainableMaterials" name="sustainableMaterials" required><br>
+            <label for="waste">Waste Generated (kg):</label>
+            <input type="number" id="waste" name="waste" min="0" step="0.01" required><br>
+
+            <label for="recycled">Recycled Waste (kg):</label>
+            <input type="number" id="recycled" name="recycled" min="0" step="0.01" required><br>
+
+            <label for="employees">Number of Employees:</label>
+            <input type="number" id="employees" name="employees" min="1" required><br>
 
             <button type="submit">Generate Green Score</button>
         </form>
-        <p id="generatedScore"></p>
+        <div id="scoreAnimation" class="score-animation">
+            <div class="loading-spinner"></div>
+            <p>Calculating your Green Score...</p>
+        </div>
+        <div id="scoreResult" class="score-result">
+            <h2>Your Green Score</h2>
+            <div id="greenScoreDisplay"></div>
+        </div>
     </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="about-us">
+                <h3>About Us</h3>
+                <p>We are dedicated to promoting sustainable practices and helping businesses reduce their environmental impact.</p>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> Email: info@greenscorewebsite.com</p>
+                <p><i class="fas fa-phone"></i> Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Green Score Website. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- External JavaScript file -->
     <script src="script.js"></script>
