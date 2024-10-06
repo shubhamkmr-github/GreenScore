@@ -24,7 +24,7 @@ header {
 }
 
 .logo img {
-    height: 50px;
+    height: 90px;
 }
 
 nav a {
@@ -37,7 +37,8 @@ nav a {
 }
 
 nav a:hover {
-    color: #D4E7C5; /* Updated hover color */
+    cursor: pointer;
+    color: #006630; /* Updated hover color */
 }
 
 .user-profile {
@@ -46,12 +47,25 @@ nav a:hover {
 }
 
 .user-profile img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
+.user-profile a{
+    margin: 0 15px;
+    text-decoration: none;
+    color: #E1F0DA; /* Updated link color */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+}
+.user-profile a:hover{
+    cursor: pointer;
+    color: #006630;
+}
 /* Page Sections */
 .page {
     display: none;
@@ -83,28 +97,30 @@ nav a:hover {
 
 .home-text h1 {
     font-size: 3rem;
-    color: #99BC85; /* Updated heading color */
+    color: #006630; /* Updated heading color */
     margin-bottom: 1rem;
 }
 
 .home-text p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
+    color: #166c45;
 }
 
 .home-image {
     position: absolute; /* Allow the image to overlap */
-    top: 25%; /* Adjust this value to position the image */
+    bottom: 6rem; /* Adjust this value to position the image */
     right: 0; /* Align to the right */
     left: 55%; /* Align to the left */
-    width: 600px; /* Increase width */
-    height: auto; /* Ensure height adjusts automatically */
+    width: 700px; /* Increase width */
+    height: 50%; /* Ensure height adjusts automatically */
     z-index: 1; /* Behind the text */
 }
 
 .home-image img {
     width: 100%; /* Make it responsive */
     height: auto; /* Keep aspect ratio */
+    opacity: 40%;
 }
 
 /* Call-to-Action Button */
@@ -120,7 +136,7 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #6A9A56; /* Updated hover color */
+    background-color: #006630; /* Updated hover color */
     transform: scale(1.05); /* Added scale effect */
 }
 
@@ -293,3 +309,84 @@ footer {
         margin-bottom: 1rem;
     }
 }
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px); /* add a blur effect to the background */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 400px; /* add a max-width to prevent the modal from getting too wide */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow effect */
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s; /* add a transition effect to the close button */
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px; /* add some padding to the form */
+  }
+  
+  #loginForm input,
+  #loginForm button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd; /* add a subtle border to the form elements */
+    border-radius: 5px; /* add a subtle border radius to the form elements */
+  }
+  
+  #loginForm button {
+    background-color: #2d862d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #loginForm button:hover {
+    background-color: #117633;
+  }
+  
+  #loginForm button:active {
+    background-color: #1a5c1a; /* add a darker background color on active state */
+  }
+  
+  #loginForm input:focus {
+    outline: none; /* remove the default outline on focus */
+    border-color: #2d862d; /* add a subtle border color on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* add a subtle shadow effect on focus */
+  }
+
+
+  
